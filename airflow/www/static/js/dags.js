@@ -95,6 +95,15 @@ $("#dag_query").on("keypress", (e) => {
   }
 });
 
+$(document).keydown(function (event) {
+  // focus search box on Cmd/Ctrl+K
+  if ((event.metaKey || event.ctrlKey) && event.key === "k") {
+    event.preventDefault();
+    $("#dag_query").focus();
+  }
+});
+
+
 $.each($("[id^=toggle]"), function toggleId() {
   const $input = $(this);
   const dagId = $input.data("dag-id");
@@ -590,3 +599,4 @@ $(".js-asset-triggered").each((i, cell) => {
     }
   });
 });
+
